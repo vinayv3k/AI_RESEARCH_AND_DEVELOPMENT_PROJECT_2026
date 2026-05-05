@@ -1,105 +1,167 @@
-Cricket Player Detection Notebook
+# 🏏 Cricket Player Detection Notebook
 
+##  How to Run
 
+1. **Open the Notebook**
 
+   * Upload and open `cricket_player_detection.ipynb` in Google Colab.
 
-How to Run
-Open the Notebook
-Upload and open cricket_player_detection.ipynb in Google Colab.
-Enable GPU (Recommended)
-Go to: Runtime > Change runtime type
-Set Hardware accelerator → GPU (T4 preferred)
-CPU will work but is significantly slower for YOLO detection and tracking.
-Run Installation Cells
-Execute all setup cells.
-Each package installs with error handling, so failures won’t stop execution.
-🎥 Video Setup (Required for Colab)
-Download the Input Video
-From Google Drive:
-https://drive.google.com/file/d/10qKFhR9A3KFHcaWqyldC-J1tIeBG3nm4/view?usp=sharing
-Upload to Google Drive
-Place the file in MyDrive for easy access.
+2. **Enable GPU (Recommended)**
 
-Update Video Path in Notebook
+   * Go to: `Runtime > Change runtime type`
+   * Set **Hardware accelerator → GPU (T4 preferred)**
+   * CPU works but is significantly slower for YOLO detection and tracking.
 
-VIDEO_PATH = "/content/drive/MyDrive/MVI_0402.MP4"
+3. **Run Installation Cells**
 
-(Adjust filename if needed — .MP4 or .MTS depending on your file)
+   * Execute all setup cells.
+   * Packages include error handling for smooth installation.
 
-⚙️ NumPy Compatibility Fix
+---
 
-Ensure correct NumPy version for pandas:
+## 🎥 Video Setup (Required for Colab)
 
+1. **Upload Your Video to Google Drive**
+
+   * Upload the `.MTS` file to your **MyDrive** folder.
+
+2. **Update Video Path in Notebook**
+
+   ```python
+   VIDEO_PATH = "/content/drive/MyDrive/England U19 Women Game 1 vs Australia Part 5.MTS"
+   ```
+
+3. **Ensure Filename Matches Exactly**
+
+   * Case-sensitive
+   * Includes spaces and extension `.MTS`
+
+---
+
+## ⚙️ NumPy Compatibility Fix
+
+Check installed version:
+
+```python
 !pip show numpy
+```
 
-If not 1.26.4, run:
+If not **1.26.4**, install:
 
+```python
 !pip install numpy==1.26.4
+```
 
-Then:
+Then restart runtime:
 
-Restart runtime: Runtime > Restart runtime
-▶️ Run the Notebook
-Click: Runtime > Run all
-What the Notebook Does:
-Detects cricket players using YOLO
-Tracks players across frames
-Performs spatial and movement analysis
-Generates outputs automatically
-📦 Outputs Generated
+```
+Runtime > Restart runtime
+```
+
+---
+
+## ▶️ Run the Notebook
+
+* Click:
+
+  ```
+  Runtime > Run all
+  ```
+
+### 🔍 What the Notebook Does
+
+* Detects cricket players using YOLO
+* Tracks players across frames
+* Performs movement and positional analysis
+* Generates outputs automatically
+
+---
+
+## 📦 Outputs Generated
 
 After execution, you’ll get:
 
-🎬 Annotated Video
-Player detection + tracking overlays
-📊 CSV Files
-Frame-by-frame player coordinates
-📈 Analysis Charts
-Movement, positioning, and insights
-📁 Video Folder Setup
-In Google Colab:
-Upload video to Google Drive
-Ensure correct path in VIDEO_PATH
-Notebook will automatically validate the file
-✅ File Verification
+* 🎬 **Annotated Video**
+
+  * Player detection and tracking overlays
+
+* 📊 **CSV Files**
+
+  * Frame-by-frame player positions
+
+* 📈 **Analysis Charts**
+
+  * Movement and positional insights
+
+---
+
+## 📁 Video Folder Setup
+
+### Google Colab
+
+1. Upload `.MTS` video to Google Drive
+2. Ensure correct `VIDEO_PATH`
+3. Notebook validates file automatically
+
+---
+
+## ✅ File Verification
 
 The notebook checks:
 
-✔ File exists / not found
-✔ File size
-🔍 If File Not Found
+* ✔ File found / not found
+* ✔ File size
 
-Run this in a new Colab cell:
+---
 
-!find /content/drive/MyDrive -name "*.MP4" -type f
+## 🔍 If File Not Found
 
-(or use .MTS depending on your file format)
+Run this in Colab:
 
-🛠 Troubleshooting
-NumPy / Pandas Errors
-Ensure NumPy = 1.26.4
-Restart runtime after installation
-Slow Processing
-Use GPU (T4 recommended)
-Long videos take significantly more time
-YOLO Model Issues
-Check internet connection
-Models download automatically during execution
-⏱ Performance Notes
-Processing time depends on:
-Video length
-Frame rate
-GPU availability
-Expect:
-Short clips → few minutes
-Full matches → much longer
-✅ Summary
+```bash
+!find /content/drive/MyDrive -name "*.MTS" -type f
+```
+
+---
+
+## 🛠 Troubleshooting
+
+### NumPy / Pandas Errors
+
+* Ensure NumPy = **1.26.4**
+* Restart runtime after installing
+
+### Slow Processing
+
+* Use GPU (T4 recommended)
+* Longer videos take more time
+
+### YOLO Model Issues
+
+* Check internet connection
+* Models download automatically
+
+---
+
+## ⏱ Performance Notes
+
+* Depends on:
+
+  * Video length
+  * Frame count
+  * Hardware (GPU vs CPU)
+
+---
+
+## ✅ Summary
 
 This notebook provides a complete pipeline for:
 
-Player detection
-Multi-object tracking
-Motion analysis
-Data export and visualization
+* Player detection
+* Multi-object tracking
+* Movement analysis
+* Exporting annotated videos and datasets
 
-Just set up the video, ensure dependencies, and run all cells.
+Update the video path, run all cells, and outputs will be generated automatically.
+
+---
