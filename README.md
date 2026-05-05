@@ -1,5 +1,5 @@
 Cricket Player Detection Notebook
-🚀 How to Run
+ How to Run
 Open the Notebook
 Upload and open cricket_player_detection.ipynb in Google Colab.
 Enable GPU (Recommended)
